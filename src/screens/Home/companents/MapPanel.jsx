@@ -21,7 +21,7 @@ export const MapPanel = () => {
         <>
 
             <Tab.Panel className={classNames('')}>
-                <TurkeyMap onClick={(city)=> navigation(`/${city.name}`)} customStyle={{hoverColor:'#099CFF', idleColor:'#1c1e23'}} cityWrapper={renderCity} hoverable={true} />
+                <TurkeyMap onClick={(city)=> navigation(`/${city.plateNumber}`)} customStyle={{hoverColor:'#099CFF', idleColor:'#1c1e23'}} cityWrapper={renderCity} hoverable={true} />
             </Tab.Panel>
             
         </>

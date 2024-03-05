@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TabBar } from './companents/TabBar'
 
 export const Home = () => {

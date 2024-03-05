@@ -28,7 +28,6 @@ export const ListPanel = () => {
                         return (
                             <div key={index} className={classNames('row-span-1 hover:bg-slate-200 cursor-pointer col-span-1 flex flex-row items-center justify-center h-16 border rounded bg-white')}>
                                 
-                                
                                 <div className='w-1/4 h-full rounded'>
                                     <div className=' flex clip items-center rounded-l justify-center h-full w-full text-white bg-blue'>
                                         {city.plaka}
