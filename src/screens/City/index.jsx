@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { fetchWeather } from '../../store/slices/weather';
 import { cities } from '../../utils/cities';
+import { Chart } from './companents/Chart';
+import { Tab } from './companents/Tabs';
+import { Header } from './companents/Header';
 
 const City = () => {
 
@@ -18,7 +21,9 @@ const City = () => {
 
     return (
         <div>
-            {plaka}
+            <Header/>
+            <Tab/>
+            <Chart/>
         </div>
     )
 }

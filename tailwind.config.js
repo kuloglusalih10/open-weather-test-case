@@ -10,7 +10,8 @@ export default {
         'dark-red': '#e01d20',
         'dark-gray': '#1c1e23',
         'light-gray' :'#fafafa',
-        'blue' : '#099CFF'
+        'blue' : '#099CFF',
+        'orange' : '#FF9A62'
       }
     },
   },
