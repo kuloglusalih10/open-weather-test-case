@@ -1,3 +1,4 @@
+import moment from 'moment';
 
 function letterUpper(text) {
 
@@ -20,9 +21,7 @@ export const formatter = (data) => {
     data.list.map((item, index)=>{
 
 
-        if(getHour(item.dt_txt) == '00') {
-            dayCount += 1;
-        }
+        
 
         if (!days[dayCount]) {
 
@@ -60,7 +59,7 @@ export const formatter = (data) => {
 
         }
 
-        let moment = {
+        let momentt = {
             'name' : data.city.name,
             'temp' : Math.round(item.main.temp),
             'main' : item.weather[0].main,
@@ -73,7 +72,7 @@ export const formatter = (data) => {
         }
 
 
-        days[dayCount].moments.push(moment);
+        days[dayCount].moments.push(momentt);
 
 
         if(days[dayCount].dates === undefined) {
@@ -82,7 +81,11 @@ export const formatter = (data) => {
 
         }
 
-        days[dayCount].dates.push(item.dt_txt);
+        days[dayCount].dates.push((moment(item.dt_txt).utc().format('YYYY-MM-DDTHH:mm:ss.') +'000Z').toString());
+
+        if(getHour(item.dt_txt) == 0) {
+            dayCount += 1;
+        }
 
 
     })

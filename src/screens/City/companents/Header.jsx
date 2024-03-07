@@ -8,10 +8,6 @@ export const Header = () => {
 
     const selectedTime = useSelector(state => state.weather.selectedTime);
 
-    useEffect(()=>{
-        console.log(selectedTime);
-    }, [selectedTime])
-
     return (
         <>
             {

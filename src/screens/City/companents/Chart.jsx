@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ApexChart from 'react-apexcharts'
+import { useSelector,useDispatch } from 'react-redux';
+
 
 export const Chart = () => {
+
+    let { selectedTabData ,status, selectedDates } = useSelector(state => state.weather)
 
     let chart = { 
           
         series: [ {
           name: 'Sıcaklık',
-          data: [12, 32]
+          data: selectedTabData
         }],
         options: {
 
@@ -46,7 +50,7 @@ export const Chart = () => {
                 
                 type: 'datetime',
                 tickPlacement: 'between',
-                categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                categories: selectedDates
             },
             tooltip: {
                 x: {
@@ -57,9 +61,19 @@ export const Chart = () => {
       
       };
 
-  return (
-    <>
-        <ApexChart options={chart.options} series={chart.series} type="area" height={450} />
-    </>
-  )
+    return (
+      <>
+          {
+          status == 'fulFilled' ? 
+
+            <ApexChart options={chart.options} series={chart.series} type="area" height={450} />
+
+             :
+
+            <div>
+              {status}
+            </div>
+        }
+      </>
+    )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tabs } from 'antd';
 import { useDispatch } from 'react-redux';
-import { changedTab } from '../../../store/slices/chart';
+import { changedTab } from '../../../store/slices/weather';
 
 export const Tab = () => {
 
@@ -15,15 +15,15 @@ export const Tab = () => {
 
     const items = [
         {
-          key: 'sıcaklık',
+          key: 'temps',
           label: 'Sıcaklık'
         },
         {
-          key: 'rüzgar',
+          key: 'winds',
           label: 'Rüzgar'
         },
         {
-          key: 'nem',
+          key: 'humidities',
           label: 'Nem',
         },
       ];

@@ -6,6 +6,7 @@ import { cities } from '../../utils/cities';
 import { Chart } from './companents/Chart';
 import { Tab } from './companents/Tabs';
 import { Header } from './companents/Header';
+import { BottomTab } from './companents/BottomTab';
 
 const City = () => {
 
@@ -24,6 +25,7 @@ const City = () => {
             <Header/>
             <Tab/>
             <Chart/>
+            <BottomTab/>
         </div>
     )
 }
