@@ -5,3 +5,8 @@
 .clip{
     clip-path: polygon(87% 35%, 100% 50%, 87% 65%, 87% 100%, 0 100%, 0 0, 87% 0);
 }
+
+
+.custom{
+    background-color: rgba(187, 210, 247, 0.4)
+}

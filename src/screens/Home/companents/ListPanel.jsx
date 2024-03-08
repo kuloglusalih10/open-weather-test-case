@@ -3,11 +3,13 @@ import { Tab } from '@headlessui/react'
 import classNames from 'classnames'
 import { cities } from '../../../utils/cities'
 import { IoSearchOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 
 export const ListPanel = () => {
 
     const [search, setSearch] = useState('');
+    const navigation = useNavigate();
 
     return (
         <>
@@ -26,7 +28,7 @@ export const ListPanel = () => {
                 {
                     cities.filter(item => item.il_adi.startsWith(search.toUpperCase())).map((city, index)=>{
                         return (
-                            <div key={index} className={classNames('row-span-1 hover:bg-slate-200 cursor-pointer col-span-1 flex flex-row items-center justify-center h-16 border rounded bg-white')}>
+                            <div key={index} onClick={()=> navigation(`/${city.plaka}`)} className={classNames('row-span-1 hover:bg-slate-200 cursor-pointer col-span-1 flex flex-row items-center justify-center h-16 border rounded bg-white')}>
                                 
                                 <div className='w-1/4 h-full rounded'>
                                     <div className=' flex clip items-center rounded-l justify-center h-full w-full text-white bg-blue'>

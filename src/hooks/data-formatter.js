@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { formatDate } from './day';
 
 function letterUpper(text) {
 
@@ -20,13 +21,41 @@ export const formatter = (data) => {
 
     data.list.map((item, index)=>{
 
-
+        
         
 
         if (!days[dayCount]) {
 
             days[dayCount] = {}; 
         }
+
+        if(days[dayCount].tab === undefined) {
+
+            days[dayCount].tab = {};
+
+        }
+
+        if(getHour(item.dt_txt) == 12 ){
+            
+            days[dayCount].tab.day = Math.round(item.main.temp);
+        }
+
+        if(getHour(item.dt_txt) == 21 ){
+            
+            days[dayCount].tab.night = Math.round(item.main.temp);
+        }
+
+        if(getHour(item.dt_txt) == 12 ){
+            
+            days[dayCount].tab.day_icon = item.weather[0].id.toString();
+        }
+
+        if(getHour(item.dt_txt) == 21 ){
+            
+            days[dayCount].tab.night_icon = item.weather[0].id.toString();
+        }
+
+        days[dayCount].tab.name = item.dt_txt;
 
         if(days[dayCount].temps === undefined) {
 
@@ -59,7 +88,7 @@ export const formatter = (data) => {
 
         }
 
-        let momentt = {
+        let time = {
             'name' : data.city.name,
             'temp' : Math.round(item.main.temp),
             'main' : item.weather[0].main,
@@ -72,7 +101,7 @@ export const formatter = (data) => {
         }
 
 
-        days[dayCount].moments.push(momentt);
+        days[dayCount].moments.push(time);
 
 
         if(days[dayCount].dates === undefined) {
@@ -81,9 +110,9 @@ export const formatter = (data) => {
 
         }
 
-        days[dayCount].dates.push((moment(item.dt_txt).utc().format('YYYY-MM-DDTHH:mm:ss.') +'000Z').toString());
-
-        if(getHour(item.dt_txt) == 0) {
+        days[dayCount].dates.push((moment.utc(item.dt_txt, 'YYYY-MM-DD HH:mm:ss').toISOString()));
+       
+        if(getHour(item.dt_txt) == 21) {
             dayCount += 1;
         }
 

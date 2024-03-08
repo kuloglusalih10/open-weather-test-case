@@ -1,3 +1,4 @@
+import { createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit';
 import React, { useEffect } from 'react'
 import ApexChart from 'react-apexcharts'
 import { useSelector,useDispatch } from 'react-redux';
@@ -9,16 +10,27 @@ export const Chart = () => {
 
     let chart = { 
           
+        forecastDataPoints: {
+        count: 17
+        },
+
         series: [ {
           name: 'Sıcaklık',
           data: selectedTabData
         }],
         options: {
 
+            markers: {
+              hover: {
+                size: undefined,
+                sizeOffset: 0
+              }
+            },
             grid: {
+                
                 xaxis: {
                   lines: {
-                    //show: false
+                    show: false
                   }
                 },
                 yaxis: {
@@ -28,15 +40,18 @@ export const Chart = () => {
                 }
             },
             chart: {
-                
-                toolbar:{
-                    show:false
+
+                toolbar: {
+                  show: false // Toolbar'ı gizler
                 },
+               
                 height: 350,
                 type: 'area'
             },
             dataLabels: {
-                enabled: false
+                enabled: true,
+                
+
             },
             stroke: {
                 
@@ -45,18 +60,36 @@ export const Chart = () => {
             
             yaxis:{
                 tickPlacement: 'on',
+                labels: {
+                  show: false,
+                  align: 'left',
+                },
+                axisBorder: {
+                  show: false,
+                }
+                
             },
             xaxis: {
-                
                 type: 'datetime',
                 tickPlacement: 'between',
-                categories: selectedDates
-            },
-            tooltip: {
-                x: {
-                format: 'dd/MM/yy HH:mm'
+                tickAmount: 5,
+                categories: selectedDates,
+                labels: {
+                  show: true
                 },
+                axisTicks: {
+                  show: false,
+                },crosshairs: {
+                  show: false,
+                },
+                tooltip: {
+                  enabled: false
+                }
             },
+            tooltip : {
+              show:false,
+              enabled:false
+            }, 
         },
       
       };
@@ -66,7 +99,9 @@ export const Chart = () => {
           {
           status == 'fulFilled' ? 
 
-            <ApexChart options={chart.options} series={chart.series} type="area" height={450} />
+            <div>
+              <ApexChart options={chart.options} series={chart.series} type="area" height={400} />
+            </div>
 
              :
 
