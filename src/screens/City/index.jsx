@@ -8,7 +8,7 @@ import { Tab } from './companents/Tabs';
 import { Header } from './companents/Header';
 import { BottomTab } from './companents/BottomTab';
 
-const City = () => {
+export const City = () => {
 
     const dispatch = useDispatch();
     const { plaka } = useParams();
@@ -29,5 +29,3 @@ const City = () => {
         </div>
     )
 }
-
-export default City

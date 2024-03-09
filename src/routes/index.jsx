@@ -1,7 +1,7 @@
 import { createBrowserRouter, } from "react-router-dom";
 import {Layout} from '../layout'
 import { Home } from "../screens/Home";
-import City from "../screens/City";
+import {City} from "../screens/City";
 
 export const router = createBrowserRouter([
     {
