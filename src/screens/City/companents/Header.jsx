@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import WeatherIcon from 'react-icons-weather';
 import classNames from 'classnames';
 import { formatDate } from '../../../hooks/day';
+import { Skeleton } from 'antd';
 
 export const Header = () => {
 
@@ -11,7 +12,20 @@ export const Header = () => {
     return (
         <>
             {
-                !selectedTime ? <p>yükleniyor</p> 
+                !selectedTime ? 
+                
+                
+                <div className='w-full h-[100px] flex flex-row items-center justify-between'>
+                    
+                    <div className='flex flex-row items-center gap-x-3 justify-center h-full'>
+                        <Skeleton.Image active/>
+                        <Skeleton.Input  active/>
+                    </div>
+                    
+                    <div className='flex flex-col h-full items-end justify-center'>
+                        <Skeleton className='h-full w-32'  paragraph active/>
+                    </div>
+                </div>
                     
                     : 
                 

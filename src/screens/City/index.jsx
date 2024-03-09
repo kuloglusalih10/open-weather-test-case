@@ -21,7 +21,7 @@ const City = () => {
     },[])
 
     return (
-        <div>
+        <div className='w-full h-max'>
             <Header/>
             <Tab/>
             <Chart/>

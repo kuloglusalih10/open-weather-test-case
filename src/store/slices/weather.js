@@ -45,8 +45,9 @@ const weatherSlice = createSlice({
         changeDay : (state, action)=>{
             state.selectedTabData = state.days[action.payload][state.currentTab];
             state.selectedDates = state.days[action.payload].dates;
-            state.currentDay = action.payload
-        },
+            state.currentDay = action.payload;
+            state.selectedTime = state.days[state.currentDay].moments[Math.round((state.days[state.currentDay].moments.length)/2)]
+        }
 
     },
     extraReducers: (builder) => {
@@ -55,13 +56,12 @@ const weatherSlice = createSlice({
             fetchWeather.fulfilled , (state , action) => {
 
                 let parsedData = formatter(action.payload);
-                state.selectedTime= parsedData.current;
+                state.selectedTime = parsedData.current;
                 console.log(parsedData);
                 state.days = parsedData.days;
                 state.selectedTabData = parsedData.days[state.currentDay][state.currentTab];
                 state.selectedDates = parsedData.days[state.currentDay].dates
                 state.status = 'fulFilled'
-                console.log(state.status)
             }
 
         ),

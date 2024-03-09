@@ -35,22 +35,22 @@ export const formatter = (data) => {
 
         }
 
-        if(getHour(item.dt_txt) == 12 ){
+        if(getHour(item.dt_txt) == 12 ||  getHour(item.dt_txt) == 0){
             
             days[dayCount].tab.day = Math.round(item.main.temp);
         }
 
-        if(getHour(item.dt_txt) == 21 ){
+        if(getHour(item.dt_txt) == 21 || getHour(item.dt_txt) == 0 ){
             
             days[dayCount].tab.night = Math.round(item.main.temp);
         }
 
-        if(getHour(item.dt_txt) == 12 ){
+        if(getHour(item.dt_txt) == 12 || getHour(item.dt_txt) == 0 ){
             
             days[dayCount].tab.day_icon = item.weather[0].id.toString();
         }
 
-        if(getHour(item.dt_txt) == 21 ){
+        if(getHour(item.dt_txt) == 21 || getHour(item.dt_txt) == 0 ){
             
             days[dayCount].tab.night_icon = item.weather[0].id.toString();
         }

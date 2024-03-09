@@ -16,7 +16,7 @@ export const TabBar = () => {
     return (
         <>
             <Tab.Group >
-                    <Tab.List className="flex rounded-lg bg-blue-900/20 mx-auto lg:w-[50%]">
+                    <Tab.List className="flex rounded-lg bg-blue-900/20 px-2 mx-auto lg:w-[50%]">
                         <Tab className={({ selected }) =>
                             classNames(
                             'w-full  rounded-l-lg flex items-center justify-center py-5 text-sm font-medium leading-5',

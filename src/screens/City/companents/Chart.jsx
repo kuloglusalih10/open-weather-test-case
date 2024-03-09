@@ -2,6 +2,7 @@ import { createImmutableStateInvariantMiddleware } from '@reduxjs/toolkit';
 import React, { useEffect } from 'react'
 import ApexChart from 'react-apexcharts'
 import { useSelector,useDispatch } from 'react-redux';
+import { Skeleton } from 'antd';
 
 
 export const Chart = () => {
@@ -27,7 +28,10 @@ export const Chart = () => {
               }
             },
             grid: {
-                
+              padding: {
+                left: 10,
+                right: 40 // Also you may want to increase this (based on the length of your labels)
+              },
                 xaxis: {
                   lines: {
                     show: false
@@ -105,8 +109,8 @@ export const Chart = () => {
 
              :
 
-            <div>
-              {status}
+            <div className=' w-full flex items-center justify-center h-[400px]' >
+                <Skeleton.Image active  className='w-full'/>
             </div>
         }
       </>
