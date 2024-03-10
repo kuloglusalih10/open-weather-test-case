@@ -32,7 +32,7 @@ export const Header = () => {
 
                 <div className='w-full h-[100px] flex flex-row items-center justify-between'>
                     
-                    {/* <div className='flex flex-row items-center gap-x-3 justify-center h-full'>
+                    <div className='flex flex-row items-center gap-x-3 justify-center h-full'>
                         <WeatherIcon className={classNames('text-5xl text-blue' , {'text-orange' : selectedTime.id >= 800})} name="owm" iconId={selectedTime.icon} flip="horizontal" rotate="90" />
                         <h1 className='text-dark-gray text-6xl'>{selectedTime.temp}<sup className='text-3xl -top-[0.7em]'>°C</sup> </h1>
                     </div>
@@ -41,7 +41,7 @@ export const Header = () => {
                         <h1 className='text-orange text-3xl'>{selectedTime.name}</h1>
                         <p className='text-gray-400 text-sm'>{selectedTime.description}</p>
                         {formatDate(selectedTime.date)}
-                    </div> */}
+                    </div>
                 </div>
                 
 
