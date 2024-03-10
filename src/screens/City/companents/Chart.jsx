@@ -104,7 +104,7 @@ export const Chart = () => {
           status == 'fulFilled' ? 
 
             <div>
-              {/* <ApexChart options={chart.options} series={chart.series} type="area" height={400} /> */}
+              <ApexChart options={chart.options} series={chart.series} type="area" height={400} />
             </div>
 
              :
