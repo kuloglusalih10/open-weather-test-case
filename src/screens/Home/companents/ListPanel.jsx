@@ -17,7 +17,7 @@ export const ListPanel = () => {
                 )}>
 
                 <div className='grid grid-cols-6 col-span-6  mb-4  '>
-                    <div className='col-span-6 lg:col-span-4 lg:col-start-2  flex flex-row items-center justify-between w-full rounded bg-white border h-14'>
+                    <div className='col-span-6 lg:col-span-4 lg:col-start-2 pr-4  flex flex-row items-center justify-between w-full rounded bg-white border h-14'>
                         <input type="text" className='w-full h-full rounded-l px-2 focus:outline-none ' placeholder='Şehir Ara' onChange={e => setSearch(e.target.value)}/>
                         <IoSearchOutline  size={25} color='#656565'/>
                     </div>
